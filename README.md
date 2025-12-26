@@ -25,23 +25,27 @@ To address the persistent gap between **research prototypes** and **deployable c
 ## 📂 Repository Structure
 
 ```text
-Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data/
+Research-Paper_AI-for-Mental-Health/
 ├── data/
 │   ├── screening_log.csv        # PRISMA screening records (N = 92)
 │   ├── study_extraction.csv     # Structured feature extraction & metrics (N = 27)
-│   └── paired_comparisons.csv   # Paired results for saturation hypothesis testing
+│   ├── paired_comparisons.csv   # Paired results for saturation hypothesis testing
+│   └── orc_report.csv           # Generated Operational Readiness audit report
 │
 ├── scripts/
 │   ├── validate_prism.py        # Validates PRISMA data integrity and synchronization
 │   ├── analyze_saturation.py   # Statistical analysis (Wilcoxon, Cliff’s Delta)
-│   └── generate_orc.py          # Generates Operational Readiness (ORC) reports
+│   ├── generate_orc.py          # Generates Operational Readiness (ORC) CSV reports
+│   └── generate_prisma.py      # Automates PRISMA 2020 flowchart generation
 │
 ├── figures/
 │   ├── saturation_plot.pdf      # Empirical evidence of performance saturation
-│   └── prisma_flow.pdf          # PRISMA 2020 study inclusion flowchart
+│   ├── prisma_flow.pdf          # PRISMA 2020 study inclusion flowchart
+│   └── prisma_flow.tex          # LaTeX/TikZ source for the PRISMA diagram
 │
 ├── refs/                        # Primary study PDFs and metadata placeholders
-├── requirements.txt             # Python dependencies for full reproduction
+├── requirements.txt             # Python dependencies (pandas, scipy, graphviz, etc.)
+├── LICENSE                      # MIT License
 └── README.md                    # Project overview and reproduction guide
 ```
 
