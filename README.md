@@ -1,77 +1,126 @@
-# AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data
+# AI for Mental Health
+## A Survey of Models Leveraging Textual and Behavioral Data
 
-This repository contains the collection of research papers and references used for the literature survey titled:
+This repository contains the **complete reproduction package** for the systematic survey:
 
-> **"AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data"**
+> **“AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data”**
 
-## 🧠 Objective
+The work examines AI-based detection of **Anxiety, Depression, and Stress (ADS)** using textual and behavioral signals, with a particular focus on **methodological rigor**, **evaluation validity**, and **deployment readiness** rather than headline accuracy improvements.
 
-The purpose of this repository is to consolidate relevant academic research and industrial papers that explore how Artificial Intelligence (AI), particularly Natural Language Processing (NLP) and behavioral analysis, is used for mental health detection and support. The survey will analyze models, datasets, ethical concerns, and the technological landscape surrounding AI-based mental health tools.
+---
 
-## 📂 Structure of the Repository
+## 📌 Abstract
+
+Recent advances in Deep Learning for ADS detection frequently report substantial performance gains over classical approaches. However, through a systematic review and paired statistical analysis, we identify a **performance saturation plateau**—where increasingly complex architectures yield **diminishing returns** once controls for **data leakage**, **evaluation protocol rigor**, and **sample provenance** are enforced.
+
+Using paired within-study comparisons, we observe statistically significant saturation:
+
+- **Wilcoxon Signed-Rank Test:** p = 0.0244  
+- **Cliff’s Delta:** 0.5950 (large effect size)
+
+To address the persistent gap between **research prototypes** and **deployable clinical systems**, we introduce an **Operational Readiness Checklist (ORC)**—a structured auditing framework for assessing whether a model meets minimum standards for responsible deployment.
+
+---
+
+## 📂 Repository Structure
+
+```text
+Research-Paper_AI-for-Mental-Health/
+├── data/
+│   ├── screening_log.csv       # PRISMA screening records (N=92)
+│   ├── study_extraction.csv    # Extracted features & metrics (N=27)
+│   └── paired_comparisons.csv  # Data pairs for saturation hypothesis testing
+│
+├── scripts/
+│   ├── validate_prism.py       # Validates data integrity & synchronization
+│   ├── analyze_saturation.py   # Statistical engine (Wilcoxon / Cliff's Delta)
+│   └── generate_orc.py         # Generates Operational Readiness reports
+│
+├── figures/
+│   ├── saturation_plot.pdf     # Visual evidence of the performance plateau
+│   └── prisma_flow.pdf         # PRISMA 2020 inclusion flowchart
+│
+├── refs/                       # PDF artifacts & metadata placeholders
+└── README.md                   # This file
+```
+
+---
+
+## 🚀 Reproduction Workflow
+
+### 1. Environment Setup
+
+```bash
+git clone https://github.com/auraflaa/Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data.git
+cd Research-Paper_AI-for-Mental-Health
+pip install pandas scipy matplotlib numpy
+```
+
+### 2. Data Integrity Check
+
+Verify that the PRISMA screening log is synchronized with the extraction ledger.
+
+```bash
+python scripts/validate_prism.py
+```
+
+**Expected output:**
 
 ```
-📁 references/             # Contains the downloaded research papers (PDFs)
-📄 README.md               # This file
-📄 reference_list.md       # Annotated bibliography and notes on each paper
+[PASS] All data artifacts verified for archive
 ```
 
-## 🔍 Focus Areas
+### 3. Statistical Analysis (Saturation Hypothesis)
 
-This literature survey focuses on (but is not limited to) the following dimensions:
+Compute paired statistical tests to evaluate performance saturation.
 
-- **NLP models** for detecting mental health conditions from text (social media posts, journal entries, chat logs)
-- **Behavioral analysis** using wearable devices, app usage, and passive data
-- **Multimodal approaches** combining text, audio, and physiological data
-- **Ethical challenges** like privacy, data anonymization, and bias
-- **Benchmark datasets** and evaluation metrics
-- **Clinical validation** and real-world applications
-
-## 📚 How to Use This Repository
-
-- Navigate to the `references/` folder to access the collected research papers.
-- The `reference_list.md` file contains short descriptions and takeaways for each paper, helping readers quickly identify relevant studies.
-- This repository is a living document. New papers will be added as the research progresses.
-
-## ✍️ Intended Audience
-
-This work is aimed at:
-
-- Researchers and students interested in **AI for healthcare**, **computational psychiatry**, or **NLP in social good**.
-- Mental health professionals exploring **AI-assisted tools** for diagnosis or monitoring.
-- Developers of ethical and responsible **AI-driven mental health applications**.
-
-## 🛡️ Ethical Considerations
-
-Mental health is a sensitive domain. All research referred to in this project will be assessed critically with respect to:
-
-- Transparency in data collection
-- Informed consent and privacy preservation
-- Minimization of algorithmic bias
-- Clinical safety and real-world usability
-
-## 🧾 Citation
-
-If you wish to cite this work in your project, please use the following (subject to update once the paper is finalized):
-
+```bash
+python scripts/analyze_saturation.py
 ```
-@article{priyangshu2025aimentalhealth,
-  title={AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data},
-  author={Priyangshu [Your Last Name]},
-  year={2025},
-  note={Unpublished Manuscript},
-  url={https://github.com/auraflaa/Research-Paper---AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data-}
+
+**Validated results:**
+
+- p-value: 0.0244 (significant at α = 0.05)  
+- Cliff’s Delta: 0.5950 (large effect)
+
+### 4. Operational Readiness Audit
+
+Generate model-level readiness classifications.
+
+```bash
+python scripts/generate_orc.py
+```
+
+---
+
+## 🛠 Operational Readiness Checklist (ORC)
+
+Models are evaluated on a 5-point scale across the following criteria:
+
+1. **Provenance** — Clear disclosure of dataset origin  
+2. **Modality** — Diversity and independence of input units  
+3. **Rigor** — Use of cross-validation or leave-one-out protocols  
+4. **Bias Mitigation** — Avoidance of synthetic oversampling (e.g., SMOTE)  
+5. **Transparency** — Explicit reporting of sample size (N)
+
+A score of **≥ 4 / 5** is required for a model to be classified as **CLINICAL READY**.
+
+---
+
+## 📄 Citation
+
+If you use this repository or its findings, please cite:
+
+```bibtex
+@article{MukherjeePandey2025ADS,
+  title   = {AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data},
+  author  = {Mukherjee, Priyangshu and Pandey, Khusboo},
+  journal = {Systematic Review Repository},
+  year    = {2025},
+  url     = {https://github.com/auraflaa/Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data}
 }
 ```
 
-## 🤝 Contributions
-
-This is a personal research project and currently not open for public contributions. If you wish to suggest papers or ideas, feel free to open an issue or contact me directly.
-
 ---
 
-**Maintained by:** [Priyangshu](https://github.com/auraflaa)  
-**Affiliation:** B.Tech (Hons), Computer Science & Engineering, RV University  
-**Semester:** 2nd Semester (2025)
-
----
+**Maintainer:** Priyangshu Mukherjee
