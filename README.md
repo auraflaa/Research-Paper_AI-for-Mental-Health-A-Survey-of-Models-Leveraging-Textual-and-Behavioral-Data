@@ -125,12 +125,12 @@ A score of **≥ 4 / 5** is required for a model to be classified as **CLINICAL 
 If you use this repository or its findings, please cite:
 
 ```bibtex
-@article{MukherjeePandey2025ADS,
-  title   = {AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data},
-  author  = {Mukherjee, Priyangshu and Pandey, Khusboo},
-  journal = {Systematic Review Repository},
-  year    = {2025},
-  url     = {https://github.com/auraflaa/Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data}
+@misc{MukherjeePandey2025ADS,
+  title        = {AI for Mental Health: A Survey of Models Leveraging Textual and Behavioral Data},
+  author       = {Mukherjee, Priyangshu and Pandey, Khusboo},
+  year         = {2025},
+  note         = {Unpublished manuscript and reproducibility package},
+  howpublished = {\url{https://github.com/auraflaa/Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data}}
 }
 ```
 
