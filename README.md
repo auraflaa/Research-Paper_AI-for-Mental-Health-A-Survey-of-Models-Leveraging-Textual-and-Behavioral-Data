@@ -74,7 +74,13 @@ python scripts/validate_prism.py
 **Expected output:**
 
 ```
-[PASS] All data artifacts verified for archive
+--- PRISMA Data Integrity Validation ---
+[PASS] screening_log.csv: Column structure is correct.
+[PASS] study_extraction.csv: Column structure is correct.
+[PASS] paired_comparisons.csv: Column structure is correct.
+[PASS] All paired IDs exist in the extraction ledger.
+[PASS] Numeric metrics are synchronized (Baseline logic applied).
+--- SUCCESS: All data artifacts verified for archive ---
 ```
 
 ### 3. Statistical Analysis (Saturation Hypothesis)
@@ -86,7 +92,7 @@ python scripts/analyze_saturation.py
 ```
 
 **Validated results:**
-
+- Number of pairs: 11
 - p-value: 0.0244 (significant at α = 0.05)  
 - Cliff’s Delta: 0.5950 (large effect)
 
