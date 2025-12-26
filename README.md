@@ -25,7 +25,7 @@ To address the persistent gap between **research prototypes** and **deployable c
 ## 📂 Repository Structure
 
 ```text
-Research-Paper_AI-for-Mental-Health/
+Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data/
 ├── data/
 │   ├── screening_log.csv        # PRISMA screening records (N = 92)
 │   ├── study_extraction.csv     # Structured feature extraction & metrics (N = 27)
