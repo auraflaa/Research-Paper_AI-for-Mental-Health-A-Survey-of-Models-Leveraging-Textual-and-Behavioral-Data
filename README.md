@@ -35,13 +35,11 @@ Research-Paper_AI-for-Mental-Health/
 ├── scripts/
 │   ├── validate_prism.py        # Validates PRISMA data integrity and synchronization
 │   ├── analyze_saturation.py   # Statistical analysis (Wilcoxon, Cliff’s Delta)
-│   ├── generate_orc.py          # Generates Operational Readiness (ORC) CSV reports
-│   └── generate_prisma.py      # Automates PRISMA 2020 flowchart generation
+│   └── generate_orc.py          # Generates Operational Readiness (ORC) CSV reports
 │
 ├── figures/
 │   ├── saturation_plot.pdf      # Empirical evidence of performance saturation
-│   ├── prisma_flow.pdf          # PRISMA 2020 study inclusion flowchart
-│   └── prisma_flow.tex          # LaTeX/TikZ source for the PRISMA diagram
+│   └── prisma_flow.pdf          # PRISMA 2020 study inclusion flowchart
 │
 ├── refs/                        # Primary study PDFs and metadata placeholders
 ├── requirements.txt             # Python dependencies (pandas, scipy, graphviz, etc.)
