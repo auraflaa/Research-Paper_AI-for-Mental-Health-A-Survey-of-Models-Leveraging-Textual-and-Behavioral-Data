@@ -52,8 +52,8 @@ Research-Paper_AI-for-Mental-Health/
 
 ```bash
 git clone https://github.com/auraflaa/Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data.git
-cd Research-Paper_AI-for-Mental-Health
-pip install pandas scipy matplotlib numpy
+cd Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data
+pip install -r requirements.txt
 ```
 
 ### 2. Data Integrity Check
