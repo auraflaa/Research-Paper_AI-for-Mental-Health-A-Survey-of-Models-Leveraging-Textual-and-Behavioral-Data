@@ -1,0 +1,28 @@
+Record_ID,Model,Readiness_Score,Score_Int,Status,Flags
+1,Random Forest,5/5,5,CLINICAL READY,None
+11,XAI-RF,5/5,5,CLINICAL READY,None
+10,Multi-branch CNN,5/5,5,CLINICAL READY,None
+21,Logistic Reg.,5/5,5,CLINICAL READY,None
+24,KNN,5/5,5,CLINICAL READY,None
+3,Multimodal Transformer,4/5,4,CLINICAL READY,Weak Validation
+2,CNN,4/5,4,CLINICAL READY,Weak Validation
+9,SVM-RBF,4/5,4,CLINICAL READY,Weak Validation
+7,Bi-LSTM,4/5,4,CLINICAL READY,Weak Validation
+4,BERT-Base,4/5,4,CLINICAL READY,Weak Validation
+6,Ensemble Transformer,4/5,4,CLINICAL READY,Weak Validation
+23,KNN,4/5,4,CLINICAL READY,Weak Validation
+8,Cognitive Network,4/5,4,CLINICAL READY,Weak Validation
+13,CNN-Text,4/5,4,CLINICAL READY,Weak Validation
+19,MLP,4/5,4,CLINICAL READY,Weak Validation
+20,Logistic Reg.,4/5,4,CLINICAL READY,Weak Validation
+22,Logistic Reg.,4/5,4,CLINICAL READY,Weak Validation
+17,LightGBM,4/5,4,CLINICAL READY,Weak Validation
+16,SVM,4/5,4,CLINICAL READY,Weak Validation
+26,CNN-LSTM,4/5,4,CLINICAL READY,Weak Validation
+25,CNN-LSTM,4/5,4,CLINICAL READY,Weak Validation
+27,BERT,4/5,4,CLINICAL READY,Weak Validation
+5,XGBoost,3/5,3,RESEARCH PROTOTYPE,Weak Validation; Synthetic Data Used
+18,SVM,3/5,3,RESEARCH PROTOTYPE,Weak Validation; Missing/Non-numeric N
+14,Contextual Review,2/5,2,RESEARCH PROTOTYPE,Weak Validation; Missing/Non-numeric N
+15,Contextual Review,2/5,2,RESEARCH PROTOTYPE,Weak Validation; Missing/Non-numeric N
+12,Contextual Review,2/5,2,RESEARCH PROTOTYPE,Weak Validation; Missing/Non-numeric N
