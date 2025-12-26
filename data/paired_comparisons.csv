@@ -1,0 +1,13 @@
+Pair_ID,Comparison_Type,Ref_ID_A,Ref_ID_B,Comparison_Validity,Pairing_Basis,Metric_Type,Value_A,Value_B,Delta,Delta_Magnitude,Delta_Direction,Test_Status,Reason_Code,Significance_Test,Effect_Size_Value,Cliff_Delta_Effect,Rationale,Extraction_Version
+W-01,Descriptive_Contrast,18,25,Weak,same_benchmark,Accuracy,0.979,0.983,0.004,Negligible,Positive,Descriptive-only,paired_ok,NA,NA,NA,"WESAD: Pinge [30] vs Mingu [37]",v1.0-extraction
+W-02,Descriptive_Contrast,21,25,Weak,same_benchmark,Accuracy,0.833,0.983,0.150,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"WESAD: Gjoreski [33] vs Mingu [37]",v1.0-extraction
+W-03,Descriptive_Contrast,16,25,Weak,same_benchmark,Accuracy,0.883,0.983,0.100,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"WESAD: Tiwari [28] vs Mingu [37]",v1.0-extraction
+W-04,Descriptive_Contrast,10,10,Weak,within_study,Accuracy,0.910,0.940,0.030,Small,Positive,Descriptive-only,paired_ok,NA,NA,NA,"StressID: RF baseline vs Multi-branch CNN [10]",v1.0-extraction
+D-01,Descriptive_Contrast,3,3,Weak,within_study,Accuracy,0.720,0.850,0.130,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"DAIC-WOZ: Baseline vs Mental-Perceiver [12]",v1.0-extraction
+D-02,Descriptive_Contrast,17,26,Weak,same_modality,Accuracy,0.700,0.970,0.270,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"Twitter: D'Cruz [29] vs Khafaga [38]",v1.0-extraction
+D-03,Descriptive_Contrast,20,26,Weak,same_modality,Accuracy,0.745,0.970,0.225,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"Opinion: Ding [32] vs Khafaga [38]",v1.0-extraction
+D-04,Descriptive_Contrast,22,23,Narrative_Only,same_benchmark,Accuracy,NA,NA,NA,NA,NA,Narrative-synthesis-only,paired_ok,NA,NA,NA,"Clinical: Kroenke [34] vs Thakre [35]",v1.0-extraction
+A-01,Descriptive_Contrast,24,27,Weak,same_modality,Accuracy,0.978,0.981,0.003,Negligible,Positive,Descriptive-only,paired_ok,NA,NA,NA,"Anxiety: Arya [36] vs Bokolo [39]",v1.0-extraction
+A-02,Descriptive_Contrast,3,3,Weak,within_study,Accuracy,0.610,0.850,0.240,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"Anxiety: Qin [12] Baseline vs Transformer",v1.0-extraction
+S-01,Descriptive_Contrast,1,4,Weak,cross_regime,Accuracy,0.932,0.720,-0.212,Large,Negative,Descriptive-only,paired_ok,NA,NA,NA,"Regime: WESAD (Lab) vs Dreaddit (Social)",v1.0-extraction
+S-02,Descriptive_Contrast,9,27,Weak,same_modality,Accuracy,0.815,0.981,0.166,Large,Positive,Descriptive-only,paired_ok,NA,NA,NA,"Social: Roy [9] vs Bokolo [39]",v1.0-extraction
