@@ -27,21 +27,22 @@ To address the persistent gap between **research prototypes** and **deployable c
 ```text
 Research-Paper_AI-for-Mental-Health/
 ├── data/
-│   ├── screening_log.csv       # PRISMA screening records (N=92)
-│   ├── study_extraction.csv    # Extracted features & metrics (N=27)
-│   └── paired_comparisons.csv  # Data pairs for saturation hypothesis testing
+│   ├── screening_log.csv        # PRISMA screening records (N = 92)
+│   ├── study_extraction.csv     # Structured feature extraction & metrics (N = 27)
+│   └── paired_comparisons.csv   # Paired results for saturation hypothesis testing
 │
 ├── scripts/
-│   ├── validate_prism.py       # Validates data integrity & synchronization
-│   ├── analyze_saturation.py   # Statistical engine (Wilcoxon / Cliff's Delta)
-│   └── generate_orc.py         # Generates Operational Readiness reports
+│   ├── validate_prism.py        # Validates PRISMA data integrity and synchronization
+│   ├── analyze_saturation.py   # Statistical analysis (Wilcoxon, Cliff’s Delta)
+│   └── generate_orc.py          # Generates Operational Readiness (ORC) reports
 │
 ├── figures/
-│   ├── saturation_plot.pdf     # Visual evidence of the performance plateau
-│   └── prisma_flow.pdf         # PRISMA 2020 inclusion flowchart
+│   ├── saturation_plot.pdf      # Empirical evidence of performance saturation
+│   └── prisma_flow.pdf          # PRISMA 2020 study inclusion flowchart
 │
-├── refs/                       # PDF artifacts & metadata placeholders
-└── README.md                   # This file
+├── refs/                        # Primary study PDFs and metadata placeholders
+├── requirements.txt             # Python dependencies for full reproduction
+└── README.md                    # Project overview and reproduction guide
 ```
 
 ---
@@ -53,6 +54,8 @@ Research-Paper_AI-for-Mental-Health/
 ```bash
 git clone https://github.com/auraflaa/Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data.git
 cd Research-Paper_AI-for-Mental-Health-A-Survey-of-Models-Leveraging-Textual-and-Behavioral-Data
+python -m venv venv
+.\venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
