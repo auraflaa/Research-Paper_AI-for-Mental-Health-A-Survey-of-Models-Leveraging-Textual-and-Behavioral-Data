@@ -4,43 +4,72 @@ import os
 def generate_orc_report():
     print("--- ADS Operational Readiness Checklist (ORC) Generator ---")
     
-    # Path handling
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    ext_path = os.path.join(os.path.dirname(script_dir), "data", "study_extraction.csv")
+    # 1. Robust Path Handling
+    # Checks current directory first, then tries relative to script location
+    if os.path.exists("data/study_extraction.csv"):
+        ext_path = "data/study_extraction.csv"
+    else:
+        # Fallback for when running from inside /scripts/ folder
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        ext_path = os.path.join(os.path.dirname(script_dir), "data", "study_extraction.csv")
     
     if not os.path.exists(ext_path):
         print(f"[ERROR] Extraction ledger not found at {ext_path}")
         return
 
-    ext = pd.read_csv(ext_path)
+    # 2. LOAD DATA WITH 'NA' HANDLING
+    # This fixes the "nan" issue by filling all missing cells with the string "NA"
+    ext = pd.read_csv(ext_path).fillna('NA')
     
-    # Heuristic scoring criteria based on survey pillars
-    # A model is "Clinically Ready" if it satisfies >= 4 of these meta-features
-    print(f"{'Record':<8} | {'Model':<20} | {'Readiness Score'} | {'Status'}")
-    print("-" * 65)
+    # Header
+    print(f"{'Record':<8} | {'Model':<22} | {'Readiness Score'} | {'Status'}")
+    print("-" * 70)
 
     for _, row in ext.iterrows():
         score = 0
-        checks = []
         
-        # 1. Provenance (Dataset disclosed)
-        if str(row['Dataset_Name']) != 'NA': score += 1
+        # --- SCORING CRITERIA ---
         
-        # 2. Modality Diversity (Experimented_On/Units disclosed)
-        if str(row['Sample_Unit']) != 'NA': score += 1
+        # 1. Provenance (Dataset Name disclosed)
+        if str(row.get('Dataset_Name', 'NA')) != 'NA': 
+            score += 1
         
-        # 3. Validation Rigor (Evaluation_Setup)
-        if 'leave_one' in str(row['Evaluation_Setup']).lower() or 'cross' in str(row['Evaluation_Setup']).lower():
+        # 2. Modality Diversity (Sample Unit disclosed)
+        if str(row.get('Sample_Unit', 'NA')) != 'NA': 
+            score += 1
+        
+        # 3. Validation Rigor (Cross-Validation or Leave-One-Out)
+        eval_setup = str(row.get('Evaluation_Setup', 'NA')).lower()
+        if 'leave_one' in eval_setup or 'cross' in eval_setup:
             score += 1
             
-        # 4. Bias Mitigation (Synthetic_Augmentation = No)
-        if str(row['Synthetic_Augmentation']) == 'No': score += 1
+        # 4. Bias Mitigation (No Synthetic Augmentation)
+        # Checks if 'Synthetic_Augmentation' is explicitly 'No'
+        if str(row.get('Synthetic_Augmentation', 'NA')) == 'No': 
+            score += 1
         
-        # 5. Metadata Transparency (N disclosed)
-        if pd.notnull(row['Sample_Size_N']): score += 1
+        # 5. Metadata Transparency (Sample Size N disclosed)
+        if str(row.get('Sample_Size_N', 'NA')) != 'NA': 
+            score += 1
 
+        # --- STATUS DETERMINATION ---
         status = "CLINICAL READY" if score >= 4 else "RESEARCH PROTOTYPE"
-        print(f"{row['Record_ID']:<8} | {str(row['Primary_Model'])[:20]:<20} | {score}/5 | {status}")
+        
+        # --- DISPLAY FORMATTING ---
+        # Fix for "nan" display:
+        model_name = str(row.get('Primary_Model', 'NA'))
+        role = str(row.get('Evidence_Role', 'NA'))
+        
+        # If Model is NA but it's a Contextual Review, label it appropriately
+        if model_name == 'NA' and ('Review' in role or 'Survey' in role):
+            model_name = "Contextual Review"
+        elif model_name == 'NA':
+             model_name = "Not Specified"
+
+        # Truncate model name for clean table alignment
+        display_model = (model_name[:20] + '..') if len(model_name) > 20 else model_name
+
+        print(f"{row['Record_ID']:<8} | {display_model:<22} | {score}/5           | {status}")
 
 if __name__ == "__main__":
     generate_orc_report()
